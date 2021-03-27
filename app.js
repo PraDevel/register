@@ -1,4 +1,6 @@
 var clicked = 0;
+var email="";
+
 $("#loginhaha").on("slid.bs.carousel", function () {
   $(".carousel").carousel("pause");
   console.log("hehe");
@@ -32,7 +34,7 @@ function user() {
       }, 3000);
       clicked--;
     } else {
-      var email = document.getElementById("mail").value;
+      email = document.getElementById("mail").value;
       $(".carousel").carousel("next");
     }
   } else {
@@ -50,7 +52,7 @@ function user() {
       var passssss = document.getElementById("passssss").value;
       firebase
         .auth()
-        .createUserWithEmailAndPassword(email, passssss)
+        .createUserWithEmailAndPassword(email.toString(), passssss)
         .then((user) => {
           var x = document.getElementById("snackbar");
 
